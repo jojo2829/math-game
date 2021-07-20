@@ -11,20 +11,19 @@ class Game
 
 end
 
+# Each round sets current player
 def setCurrentPlayer(id, name)
   @current_player_id = id
   @current_player = name
 end
 
+# Start game, set players with 3 Lifes and start question
 def start
   setPlayers
-
-  puts "id: #{@x.id}, #{@x.name}: Life Count: #{@x.life_count}/3 #{@x.turn}"
-  puts "id: #{@y.id}, #{@y.name}: Life Count: #{@y.life_count}/3 #{@y.turn}"
-
   question
 end
 
+# Checks for winner to display in the end
 def winnerCheck
   if @x.life_count == 0
     @winner = @y.name
@@ -35,6 +34,7 @@ def winnerCheck
   end
 end
 
+# Checks players life status each round, if no one is 0, game continues
 def checkLife
   if (@x.life_count == 0 || @y.life_count == 0)
     winnerCheck
